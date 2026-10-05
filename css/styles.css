@@ -1,0 +1,239 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    color: #443c3a;
+    background-color: #fffaf5;
+}
+
+header, footer {
+    padding: 24px;
+    text-align: center;
+    background-color: #f4e4e2;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
+}
+
+.marca {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #824954;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: #824954;
+}
+
+nav a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section {
+    padding: 36px 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.inicio img {
+    width: 70%;
+    margin: 16px auto;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: #824954;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+.detalle {
+    color: #824954;
+    font-weight: bold;
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 22px;
+    margin: 12px 0;
+    border: 1px solid #824954;
+    border-radius: 6px;
+    background-color: #824954;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Productos: distribución con Flexbox */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto {
+    width: 100%;
+    padding: 18px;
+    border: 1px solid #dccac2;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+/* Reseñas: distribución con Grid */
+.resenas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.resena {
+    padding: 20px;
+    border: 1px solid #d0d8c9;
+    border-radius: 8px;
+    background-color: #edf0e8;
+}
+
+.aviso {
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+}
+
+/* Contacto */
+.contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #dccac2;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #9b8780;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+}
+
+button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+}
+
+
+/* Tablet */
+@media (min-width: 768px) {
+    main {
+        width: 88%;
+    }
+
+    .inicio {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .inicio div {
+        width: 60%;
+    }
+
+    .inicio img {
+        width: 30%;
+        margin: 0;
+    }
+
+    .producto {
+        width: 46%;
+    }
+
+    .resenas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contacto {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .contacto-texto {
+        width: 40%;
+    }
+
+    form {
+        width: 56%;
+        padding: 28px;
+    }
+}
+
+/* Computadora */
+@media (min-width: 992px) {
+    main {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 48px 0;
+    }
+
+    .producto {
+        width: 31%;
+    }
+
+    .resenas {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

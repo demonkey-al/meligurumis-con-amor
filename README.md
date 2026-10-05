@@ -42,7 +42,8 @@ Se pueden reemplazar por los archivos originales del emprendimiento. Al cambiarl
 
 ## Publicación
 
-- Repositorio GitHub: pendiente de creación y verificación.
-- Sitio publicado: pendiente de activar y verificar GitHub Pages.
+- [Repositorio público](https://github.com/demonkey-al/meligurumis-con-amor)
+- [Sitio en GitHub Pages](https://demonkey-al.github.io/meligurumis-con-amor/)
 
-Para publicar: crear el repositorio público `meligurumis-con-amor`, subir la rama `main` y elegir Settings → Pages → Deploy from a branch → `main` → `/ (root)`. Agregar aquí los enlaces reales cuando estén verificados.
+GitHub Pages publica la rama `main` desde la carpeta raíz. El proyecto fue subido desde la interfaz web de GitHub porque la conexión local de Git no tenía credenciales de escritura. Los commits progresivos del desarrollo se conservan en la copia local; GitHub registra los commits reales de publicación.
+

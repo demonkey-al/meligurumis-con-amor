@@ -3,114 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meligurumis con Amor: amigurumis, tejidos artesanales y una experiencia de compra online demostrativa.">
+    <meta name="author" content="Meligurumis con Amor">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#824954">
+    <meta property="og:title" content="Meligurumis con Amor">
+    <meta property="og:description" content="Amigurumis y tejidos artesanales hechos punto a punto, con amor.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
     <title>Meligurumis con Amor | Amigurumis y crochet</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido principal</a>
+
     <header>
-        <img class="logo" src="img/logo.jpg" alt="Logo de Meligurumis con Amor: un osito con un corazón" width="150" height="150">
-        <p class="marca">Meligurumis con Amor</p>
-        <p>Amigurumis y tejidos artesanales</p>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#resenas">Reseñas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+        <div class="encabezado-marca container">
+            <img class="logo" src="img/logo.jpg" alt="Logo de Meligurumis con Amor: un osito tejido con un corazón" width="150" height="150">
+            <div>
+                <p class="marca">Meligurumis con Amor</p>
+                <p class="lema">Amigurumis y tejidos artesanales</p>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-md" aria-label="Navegación principal">
+            <div class="container justify-content-end justify-content-md-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir o cerrar menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="menu-principal">
+                    <ul class="navbar-nav align-items-md-center">
+                        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#carrito">Carrito <span id="contador-carrito" class="contador-carrito" aria-label="0 productos en el carrito" aria-live="polite">0</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#resenas">Reseñas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section id="inicio" class="inicio">
-            <div>
+    <main id="contenido-principal">
+        <section id="inicio" class="inicio container" aria-labelledby="titulo-principal">
+            <div class="inicio-contenido">
                 <p class="detalle">Punto a punto, con amor</p>
-                <h1>Amigurumis y tejidos hechos a mano</h1>
+                <h1 id="titulo-principal">Amigurumis y tejidos hechos a mano</h1>
                 <p>Bienvenidos a Meligurumis con Amor, un emprendimiento de crochet y amigurumis. Un espacio para compartir nuestros tejidos y el cariño por lo artesanal.</p>
                 <a class="boton" href="#productos">Ver productos</a>
             </div>
-            <img src="img/muneca-crochet.jpg" alt="Muñeca tejida de cabello azul, vestido blanco y un pequeño personaje a sus pies" width="361" height="640">
+            <img src="img/muneca-crochet.jpg" alt="Muñeca tejida de cabello azul y vestido blanco junto a un pequeño personaje" width="361" height="640" fetchpriority="high">
         </section>
-        <!-- Productos -->
-        <section id="productos">
-            <h2>Productos</h2>
-            <p>Un pequeño catálogo para conocer la propuesta de Meligurumis con Amor.</p>
-            <p class="aviso">Trabajos publicados en nuestro Instagram. Consultá por disponibilidad y precio de cada modelo.</p>
-            <div class="productos">
-                <article class="producto">
-                    <img src="img/muneca-crochet.jpg" alt="Muñeca de crochet con cabello azul y vestido blanco" width="361" height="640">
-                    <h3>Muñeca de crochet</h3>
-                    <p>Muñeca tejida con cabello azul y vestido blanco.</p>
-                    <p class="detalle">Consultar precio</p>
-                    <a class="boton" href="https://www.instagram.com/meligurumis_con_amor/">Consultar por la muñeca</a>
-                </article>
-                <article class="producto">
-                    <img src="img/gato-negro.jpg" alt="Amigurumi de un gato negro con ojos amarillos y bigotes" width="361" height="640">
-                    <h3>Gatito negro</h3>
-                    <p>Un gatito tejido de color negro, con ojos amarillos y bigotes.</p>
-                    <p class="detalle">Consultar precio</p>
-                    <a class="boton" href="https://www.instagram.com/meligurumis_con_amor/">Consultar por el gatito negro</a>
-                </article>
-                <article class="producto">
-                    <img src="img/gato-tricolor.jpg" alt="Amigurumi de un gato blanco con detalles negros y mostaza y nariz rosa" width="361" height="640">
-                    <h3>Gatito tricolor</h3>
-                    <p>Un gatito tejido en blanco, negro y mostaza, con nariz rosa.</p>
-                    <p class="detalle">Consultar precio</p>
-                    <a class="boton" href="https://www.instagram.com/meligurumis_con_amor/">Consultar por el gatito tricolor</a>
-                </article>
+
+        <section id="productos" class="productos-seccion" aria-labelledby="titulo-productos">
+            <div class="container">
+                <p class="seccion-etiqueta">Catálogo online</p>
+                <h2 id="titulo-productos">Productos</h2>
+                <p>Explorá una selección demostrativa de artículos para el hogar obtenida desde una API REST pública.</p>
+                <p class="aviso">Los productos, precios e imágenes de esta sección son datos de demostración de DummyJSON y no representan el stock real del emprendimiento.</p>
+                <div id="estado-productos" class="estado estado-carga" role="status" aria-live="polite">Cargando productos…</div>
+                <div id="lista-productos" class="productos" aria-live="polite"></div>
             </div>
         </section>
 
-        <!-- Reseñas -->
-        <section id="resenas">
-            <h2>Reseñas</h2>
-            <p class="aviso">Contenido demostrativo: estos espacios no representan opiniones de clientes reales.</p>
-            <div class="resenas">
-                <article class="resena">
-                    <h3>Reseña de ejemplo 1</h3>
-                    <p>Aquí se podrá compartir una opinión sobre un amigurumi, con autorización de quien la escribió.</p>
-                </article>
-                <article class="resena">
-                    <h3>Reseña de ejemplo 2</h3>
-                    <p>Este espacio queda reservado para una experiencia real con los tejidos del emprendimiento.</p>
-                </article>
-                <article class="resena">
-                    <h3>Reseña de ejemplo 3</h3>
-                    <p>Aquí se podrá agregar otro comentario real cuando esté disponible.</p>
-                </article>
+        <section id="carrito" class="carrito-seccion container" aria-labelledby="titulo-carrito">
+            <p class="seccion-etiqueta">Tu selección</p>
+            <h2 id="titulo-carrito">Carrito de compras</h2>
+            <p>Modificá las cantidades o eliminá productos antes de simular tu compra.</p>
+            <div class="carrito-layout">
+                <div id="lista-carrito" class="lista-carrito" aria-live="polite"></div>
+                <aside class="resumen-carrito" aria-labelledby="titulo-resumen">
+                    <h3 id="titulo-resumen">Resumen</h3>
+                    <div class="resumen-linea">
+                        <span>Productos</span>
+                        <span id="cantidad-resumen">0</span>
+                    </div>
+                    <div class="resumen-linea resumen-total">
+                        <span>Total</span>
+                        <strong id="total-carrito">US$ 0,00</strong>
+                    </div>
+                    <button id="finalizar-compra" class="boton w-100" type="button" disabled>Finalizar compra</button>
+                    <p class="resumen-nota">Compra demostrativa. No se procesan pagos reales.</p>
+                </aside>
+            </div>
+            <p id="mensaje-carrito" class="mensaje-estado" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="resenas" class="resenas-seccion" aria-labelledby="titulo-resenas">
+            <div class="container">
+                <p class="seccion-etiqueta">Experiencias</p>
+                <h2 id="titulo-resenas">Reseñas</h2>
+                <p class="aviso">Contenido demostrativo: estos espacios no representan opiniones de clientes reales.</p>
+                <div class="resenas">
+                    <article class="resena">
+                        <h3>Reseña de ejemplo 1</h3>
+                        <p>Aquí se podrá compartir una opinión sobre un amigurumi, con autorización de quien la escribió.</p>
+                    </article>
+                    <article class="resena">
+                        <h3>Reseña de ejemplo 2</h3>
+                        <p>Este espacio queda reservado para una experiencia real con los tejidos del emprendimiento.</p>
+                    </article>
+                    <article class="resena">
+                        <h3>Reseña de ejemplo 3</h3>
+                        <p>Aquí se podrá agregar otro comentario real cuando esté disponible.</p>
+                    </article>
+                </div>
             </div>
         </section>
-        <!-- Contacto -->
-        <section id="contacto">
-            <h2>Contacto</h2>
+
+        <section id="contacto" class="contacto-seccion container" aria-labelledby="titulo-contacto">
+            <p class="seccion-etiqueta">Escribinos</p>
+            <h2 id="titulo-contacto">Contacto</h2>
             <div class="contacto">
                 <div class="contacto-texto">
                     <h3>¿Charlamos sobre un tejido?</h3>
                     <p>Podés consultar por los trabajos de Meligurumis con Amor y conocer más en Instagram.</p>
-                    <a href="https://www.instagram.com/meligurumis_con_amor/">Visitar el Instagram del emprendimiento</a>
+                    <a href="https://www.instagram.com/meligurumis_con_amor/" target="_blank" rel="noopener noreferrer">Visitar el Instagram del emprendimiento</a>
                     <p>También podés dejarnos tu mensaje en el formulario.</p>
                 </div>
-                <form action="https://formspree.io/f/mjygvpvj" method="POST">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required>
 
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" required>
+                <form id="formulario-contacto" action="https://formspree.io/f/mjygvpvj" method="POST" novalidate>
+                    <div class="campo-formulario">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" required minlength="2" aria-describedby="error-nombre">
+                        <span id="error-nombre" class="error-campo" aria-live="polite"></span>
+                    </div>
 
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    <div class="campo-formulario">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="error-email">
+                        <span id="error-email" class="error-campo" aria-live="polite"></span>
+                    </div>
 
-                    <button class="boton" type="submit">Enviar</button>
+                    <div class="campo-formulario">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" aria-describedby="error-mensaje"></textarea>
+                        <span id="error-mensaje" class="error-campo" aria-live="polite"></span>
+                    </div>
+
+                    <button id="enviar-formulario" class="boton" type="submit">Enviar mensaje</button>
+                    <p id="estado-formulario" class="mensaje-estado" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <p class="marca">Meligurumis con Amor</p>
-        <p>Tejidos hechos a mano, con amor.</p>
-        <a href="https://www.instagram.com/meligurumis_con_amor/">Ver Instagram</a>
+        <div class="container">
+            <p class="marca">Meligurumis con Amor</p>
+            <p>Tejidos hechos a mano, con amor.</p>
+            <a href="https://www.instagram.com/meligurumis_con_amor/" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
+            <p class="copyright">© <span id="anio-actual">2026</span> Meligurumis con Amor</p>
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

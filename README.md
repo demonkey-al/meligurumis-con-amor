@@ -1,49 +1,113 @@
 # Meligurumis con Amor
 
-Pre-Entrega del curso de Front-End. Página de presentación y catálogo simple de un emprendimiento de crochet y amigurumis hechos a mano.
+Proyecto Final de Front-End: sitio e-commerce responsive para un emprendimiento de crochet y amigurumis. Incluye catálogo dinámico, carrito persistente, validación de contacto y simulación de compra.
 
-## Objetivo y tecnologías
+## Funcionalidades
 
-Aplicar lo visto en las clases 1 a 8: HTML5 semántico, CSS externo, Google Fonts, modelo de caja, Flexbox, Grid, Media Queries, Git y GitHub. No incluye JavaScript, frameworks, carrito ni backend propio.
+- Estructura semántica con navegación interna.
+- Catálogo cargado con Fetch desde la API REST de [DummyJSON](https://dummyjson.com/docs/products).
+- Tarjetas dinámicas con imagen, título, descripción, precio y acción de compra.
+- Catálogo artesanal local de respaldo si la API no está disponible.
+- Carrito con cantidades editables, eliminación de productos, subtotales y total.
+- Persistencia del carrito mediante localStorage.
+- Contador de unidades actualizado en tiempo real.
+- Simulación de compra con feedback visible.
+- Formulario conectado a Formspree con validación desde JavaScript.
+- Diseño responsive y navegación accesible mediante teclado.
+- Mensajes dinámicos anunciados con regiones aria-live.
 
-## Organización
+> Los artículos cargados desde DummyJSON son datos de demostración y no representan el stock real del emprendimiento. La finalización de compra también es una simulación: no procesa pagos.
 
-- `index.html`: inicio, productos, reseñas y contacto en una sola página.
-- `css/styles.css`: estilos y adaptación a celular, tablet y computadora.
-- `img/`: logo y tres imágenes locales de los trabajos.
-- `README.md`: descripción e instrucciones.
+## Tecnologías
 
-Productos usa Flexbox con `flex-wrap`; reseñas usa Grid con una, dos o tres columnas. Las Media Queries de 768px y 992px adaptan el diseño. El contacto pasa de una columna a texto y formulario uno al lado del otro.
+- HTML5 semántico.
+- CSS3.
+- Bootstrap 5.3.3 mediante CDN oficial con Subresource Integrity.
+- Flexbox para productos.
+- CSS Grid para reseñas y distribución del carrito.
+- Media Queries para contacto y adaptación responsive.
+- JavaScript Vanilla.
+- Fetch API.
+- Web Storage API (localStorage).
+- Formspree.
+- Google Fonts (Nunito).
 
-## Cómo verlo
+## Estructura
 
-Abrir `index.html` en el navegador o usar Live Server desde Visual Studio Code. No requiere instalación de paquetes. Google Fonts y los enlaces externos necesitan conexión a Internet.
+    .
+    ├── css/
+    │   └── styles.css
+    ├── img/
+    │   ├── gato-negro.jpg
+    │   ├── gato-tricolor.jpg
+    │   ├── logo.jpg
+    │   └── muneca-crochet.jpg
+    ├── js/
+    │   └── script.js
+    ├── .gitignore
+    ├── index.html
+    ├── netlify.toml
+    └── README.md
 
-## Formspree
+## Ejecución local
 
-El formulario usa `action="https://formspree.io/f/mjygvpvj"` y `method="POST"`. Nombre, email y mensaje tienen `label`, `name` y `required`.
+El proyecto no requiere instalación de dependencias ni proceso de compilación. Debido al consumo de recursos externos, se recomienda servirlo mediante HTTP:
 
-Formspree recibe los datos y gestiona las notificaciones sin que tengamos que programar un servidor. La cuenta y el formulario “Contacto Meligurumis” ya están creados. No se usa JavaScript.
+1. Abrir la carpeta en Visual Studio Code.
+2. Iniciar index.html con la extensión Live Server.
+3. Abrir la URL local indicada por Live Server.
 
-Para cambiar el destino, crear otro formulario en Formspree y reemplazar la URL del atributo `action` por el endpoint que proporcione el servicio. Verificar siempre la recepción de una consulta de prueba.
+También se puede usar cualquier servidor estático:
 
-## Contenido e imágenes
+    python3 -m http.server 8000
 
-Las tres reseñas son espacios demostrativos, no testimonios reales. Reemplazarlas únicamente con comentarios verificables y autorizados.
+Después, visitar http://localhost:8000.
 
-Las imágenes se guardaron localmente desde el perfil público indicado por el dueño del proyecto. Son portadas de publicaciones, no fotografías originales en alta resolución:
+## Catálogo y carrito
 
-- `img/logo.jpg`: imagen del [perfil de Meligurumis con Amor](https://www.instagram.com/meligurumis_con_amor/).
-- `img/muneca-crochet.jpg`: [muñeca de cabello azul](https://www.instagram.com/meligurumis_con_amor/reel/DbUJpPctBn6/).
-- `img/gato-negro.jpg`: [gatito negro](https://www.instagram.com/meligurumis_con_amor/reel/DaN6PCmBiEq/).
-- `img/gato-tricolor.jpg`: [gatito tricolor](https://www.instagram.com/meligurumis_con_amor/reel/DaN55DnBAV2/).
+El archivo js/script.js consulta la categoría home-decoration de DummyJSON. Si la consulta falla o no devuelve productos válidos, se muestran tres artículos locales de respaldo.
 
-Se pueden reemplazar por los archivos originales del emprendimiento. Al cambiarlos, actualizar también los atributos `width`, `height` y `alt` si corresponde. No se publicaron precios, medidas, materiales específicos ni datos de contacto no confirmados. La disponibilidad se consulta en Instagram.
+El carrito se guarda con la clave meligurumis-carrito. Cada modificación vuelve a calcular:
 
-## Publicación
+- Cantidad total de unidades.
+- Subtotal por producto.
+- Total general.
 
-- [Repositorio público](https://github.com/demonkey-al/meligurumis-con-amor)
-- [Sitio en GitHub Pages](https://demonkey-al.github.io/meligurumis-con-amor/)
+La información permanece disponible al recargar o cerrar el navegador hasta que se elimine manualmente, se finalice la compra simulada o se borren los datos del sitio.
 
-GitHub Pages publica la rama `main` desde la carpeta raíz. El proyecto fue subido desde la interfaz web de GitHub porque la conexión local de Git no tenía credenciales de escritura. Los commits progresivos del desarrollo se conservan en la copia local; GitHub registra los commits reales de publicación.
+## Formulario de contacto
 
+El formulario envía nombre, correo electrónico y mensaje al endpoint configurado de Formspree. Antes del envío, JavaScript comprueba:
+
+- Nombre obligatorio de al menos 2 caracteres.
+- Correo obligatorio con formato válido.
+- Mensaje obligatorio de al menos 10 caracteres.
+
+El resultado del envío se muestra dentro de la misma página. Para cambiar la cuenta receptora debe reemplazarse el atributo action del formulario en index.html.
+
+## Accesibilidad y SEO
+
+- Textos alternativos descriptivos.
+- Indicadores de foco visibles.
+- Enlace para saltar al contenido principal.
+- Etiquetas y errores asociados a los campos.
+- Controles del carrito con nombres accesibles.
+- Soporte para prefers-reduced-motion.
+- Meta description, robots, Open Graph, idioma y tema de navegador.
+
+## Despliegue
+
+- [Repositorio en GitHub](https://github.com/demonkey-al/meligurumis-con-amor)
+- [GitHub Pages](https://demonkey-al.github.io/meligurumis-con-amor/)
+- La URL de Netlify se añadirá después del primer despliegue.
+
+El archivo netlify.toml publica directamente la raíz del repositorio porque el sitio es estático y no necesita un comando de build.
+
+## Créditos de imágenes
+
+Las imágenes locales se guardaron desde el perfil público del emprendimiento con autorización del responsable del proyecto:
+
+- [Instagram de Meligurumis con Amor](https://www.instagram.com/meligurumis_con_amor/)
+- [Muñeca de cabello azul](https://www.instagram.com/meligurumis_con_amor/reel/DbUJpPctBn6/)
+- [Gatito negro](https://www.instagram.com/meligurumis_con_amor/reel/DaN6PCmBiEq/)
+- [Gatito tricolor](https://www.instagram.com/meligurumis_con_amor/reel/DaN55DnBAV2/)

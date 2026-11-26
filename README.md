@@ -99,7 +99,7 @@ El resultado del envío se muestra dentro de la misma página. Para cambiar la c
 
 - [Repositorio en GitHub](https://github.com/demonkey-al/meligurumis-con-amor)
 - [GitHub Pages](https://demonkey-al.github.io/meligurumis-con-amor/)
-- La URL de Netlify se añadirá después del primer despliegue.
+- [Sitio en Netlify](https://meligurumis-con-amor.netlify.app/)
 
 El archivo netlify.toml publica directamente la raíz del repositorio porque el sitio es estático y no necesita un comando de build.
 

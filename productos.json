@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Muñeca tejida personalizada",
+        "description": "Muñeca de crochet hecha a mano, con cabello azul, vestido blanco y delicados detalles bordados.",
+        "price": 35000,
+        "image": "assets/img/producto-1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Gatito negro amigurumi",
+        "description": "Gatito tejido a crochet en color negro, con ojos amarillos y bigotes que le dan una expresión única.",
+        "price": 22000,
+        "image": "assets/img/producto-2.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Gatito tricolor amigurumi",
+        "description": "Gatito artesanal tejido en blanco, negro y mostaza, con nariz rosa y detalles llenos de ternura.",
+        "price": 24000,
+        "image": "assets/img/producto-3.jpg"
+    }
+]

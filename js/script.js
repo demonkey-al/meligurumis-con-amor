@@ -1,37 +1,36 @@
 (() => {
     "use strict";
 
-    const API_URL = "https://dummyjson.com/products/category/home-decoration?limit=6&select=id,title,price,description,thumbnail";
-    const STORAGE_KEY = "meligurumis-carrito";
+    const STORAGE_KEY = "meligurumis-carrito-artesanal-v1";
     const MAX_QUANTITY = 99;
 
     const fallbackProducts = [
         {
             id: "local-muneca",
-            title: "Muñeca de crochet",
-            description: "Muñeca tejida con cabello azul y vestido blanco.",
-            price: 32,
-            thumbnail: "img/muneca-crochet.jpg"
+            title: "Muñeca tejida personalizada",
+            description: "Muñeca de crochet hecha a mano, con cabello azul, vestido blanco y delicados detalles bordados.",
+            price: 35000,
+            image: "assets/img/producto-1.jpg"
         },
         {
             id: "local-gato-negro",
-            title: "Gatito negro",
-            description: "Gatito tejido de color negro, con ojos amarillos y bigotes.",
-            price: 18,
-            thumbnail: "img/gato-negro.jpg"
+            title: "Gatito negro amigurumi",
+            description: "Gatito tejido a crochet en color negro, con ojos amarillos y bigotes que le dan una expresión única.",
+            price: 22000,
+            image: "assets/img/producto-2.jpg"
         },
         {
             id: "local-gato-tricolor",
-            title: "Gatito tricolor",
-            description: "Gatito tejido en blanco, negro y mostaza, con nariz rosa.",
-            price: 20,
-            thumbnail: "img/gato-tricolor.jpg"
+            title: "Gatito tricolor amigurumi",
+            description: "Gatito artesanal tejido en blanco, negro y mostaza, con nariz rosa y detalles llenos de ternura.",
+            price: 24000,
+            image: "assets/img/producto-3.jpg"
         }
     ];
 
     const moneyFormatter = new Intl.NumberFormat("es-AR", {
         style: "currency",
-        currency: "USD"
+        currency: "ARS"
     });
 
     const elements = {
@@ -66,7 +65,7 @@
         return element;
     }
 
-    function normalizeImageUrl(value, fallback = "img/logo.jpg") {
+    function normalizeImageUrl(value, fallback = "assets/img/logo.jpg") {
         if (typeof value !== "string" || value.trim() === "") {
             return fallback;
         }
@@ -102,7 +101,7 @@
                 ? product.description.trim()
                 : "Sin descripción disponible.",
             price,
-            thumbnail: normalizeImageUrl(product.thumbnail)
+            image: normalizeImageUrl(product.image)
         };
     }
 
@@ -111,15 +110,15 @@
         const timeoutId = window.setTimeout(() => controller.abort(), 8000);
 
         try {
-            const response = await fetch(API_URL, { signal: controller.signal });
+            const response = await fetch("./productos.json", { signal: controller.signal });
 
             if (!response.ok) {
                 throw new Error(`La API respondió con el estado ${response.status}`);
             }
 
             const data = await response.json();
-            const normalizedProducts = Array.isArray(data.products)
-                ? data.products.map(normalizeProduct).filter(Boolean)
+            const normalizedProducts = Array.isArray(data)
+                ? data.map(normalizeProduct).filter(Boolean)
                 : [];
 
             if (normalizedProducts.length === 0) {
@@ -129,11 +128,11 @@
             products = normalizedProducts;
             elements.productStatus.hidden = true;
         } catch (error) {
-            console.warn("No se pudo cargar DummyJSON; se usa el catálogo de respaldo.", error);
+            console.warn("No se pudo cargar productos.json; se usa el catálogo de respaldo.", error);
             products = fallbackProducts.map(normalizeProduct).filter(Boolean);
             elements.productStatus.hidden = false;
             elements.productStatus.className = "estado estado-error";
-            elements.productStatus.textContent = "No se pudo conectar con la API. Mostramos temporalmente el catálogo artesanal de respaldo.";
+            elements.productStatus.textContent = "No se pudo cargar el catálogo. Mostramos temporalmente los productos artesanales de respaldo.";
         } finally {
             window.clearTimeout(timeoutId);
             renderProducts();
@@ -150,14 +149,14 @@
         const price = createElement("p", "producto-precio", moneyFormatter.format(product.price));
         const button = createElement("button", "boton", "Agregar al carrito");
 
-        image.src = product.thumbnail;
+        image.src = product.image;
         image.alt = `Imagen de ${product.title}`;
         image.width = 320;
         image.height = 225;
         image.loading = "lazy";
         image.decoding = "async";
         image.addEventListener("error", () => {
-            image.src = "img/logo.jpg";
+            image.src = "assets/img/logo.jpg";
             image.alt = `Imagen no disponible para ${product.title}`;
         }, { once: true });
 
@@ -288,13 +287,13 @@
             `Subtotal: ${moneyFormatter.format(item.price * item.quantity)}`
         );
 
-        image.src = item.thumbnail;
+        image.src = item.image;
         image.alt = `Miniatura de ${item.title}`;
         image.width = 94;
         image.height = 94;
         image.loading = "lazy";
         image.addEventListener("error", () => {
-            image.src = "img/logo.jpg";
+            image.src = "assets/img/logo.jpg";
         }, { once: true });
 
         decreaseButton.type = "button";

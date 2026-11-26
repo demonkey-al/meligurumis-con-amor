@@ -5,7 +5,7 @@ Proyecto Final de Front-End: sitio e-commerce responsive para un emprendimiento 
 ## Funcionalidades
 
 - Estructura semántica con navegación interna.
-- Catálogo cargado con Fetch desde la API REST de [DummyJSON](https://dummyjson.com/docs/products).
+- Catálogo artesanal en español cargado con `fetch("./productos.json")`.
 - Tarjetas dinámicas con imagen, título, descripción, precio y acción de compra.
 - Catálogo artesanal local de respaldo si la API no está disponible.
 - Carrito con cantidades editables, eliminación de productos, subtotales y total.
@@ -16,7 +16,7 @@ Proyecto Final de Front-End: sitio e-commerce responsive para un emprendimiento 
 - Diseño responsive y navegación accesible mediante teclado.
 - Mensajes dinámicos anunciados con regiones aria-live.
 
-> Los artículos cargados desde DummyJSON son datos de demostración y no representan el stock real del emprendimiento. La finalización de compra también es una simulación: no procesa pagos.
+> Los productos y precios son demostrativos y no representan necesariamente el stock real del emprendimiento. La finalización de compra también es una simulación: no procesa pagos.
 
 ## Tecnologías
 
@@ -27,7 +27,7 @@ Proyecto Final de Front-End: sitio e-commerce responsive para un emprendimiento 
 - CSS Grid para reseñas y distribución del carrito.
 - Media Queries para contacto y adaptación responsive.
 - JavaScript Vanilla.
-- Fetch API.
+- Fetch API y catálogo JSON local.
 - Web Storage API (localStorage).
 - Formspree.
 - Google Fonts (Nunito).
@@ -35,18 +35,21 @@ Proyecto Final de Front-End: sitio e-commerce responsive para un emprendimiento 
 ## Estructura
 
     .
+    ├── assets/
+    │   └── img/
+    │       ├── logo.jpg
+    │       ├── producto-1.jpg
+    │       ├── producto-2.jpg
+    │       └── producto-3.jpg
     ├── css/
     │   └── styles.css
-    ├── img/
-    │   ├── gato-negro.jpg
-    │   ├── gato-tricolor.jpg
-    │   ├── logo.jpg
-    │   └── muneca-crochet.jpg
     ├── js/
     │   └── script.js
+    ├── img/                    # imágenes originales preservadas
     ├── .gitignore
     ├── index.html
     ├── netlify.toml
+    ├── productos.json
     └── README.md
 
 ## Ejecución local
@@ -65,15 +68,23 @@ Después, visitar http://localhost:8000.
 
 ## Catálogo y carrito
 
-El archivo js/script.js consulta la categoría home-decoration de DummyJSON. Si la consulta falla o no devuelve productos válidos, se muestran tres artículos locales de respaldo.
+El archivo js/script.js consume `productos.json` mediante `fetch` y crea las tarjetas en el DOM. Cada producto contiene `id`, `title`, `description`, `price` e `image`. Si el archivo no puede cargarse o devuelve datos inválidos, se muestran tres artículos artesanales de respaldo definidos en JavaScript.
 
-El carrito se guarda con la clave meligurumis-carrito. Cada modificación vuelve a calcular:
+El carrito se guarda con la clave `meligurumis-carrito-artesanal-v1`. Cada modificación vuelve a calcular:
 
 - Cantidad total de unidades.
 - Subtotal por producto.
 - Total general.
 
 La información permanece disponible al recargar o cerrar el navegador hasta que se elimine manualmente, se finalice la compra simulada o se borren los datos del sitio.
+
+### Personalizar productos e imágenes
+
+1. Editar los textos y precios dentro de `productos.json`.
+2. Reemplazar `assets/img/producto-1.jpg`, `producto-2.jpg` y `producto-3.jpg` por fotografías propias conservando esos nombres, o actualizar la propiedad `image` de cada producto.
+3. Mantener textos alternativos descriptivos: las tarjetas los generan automáticamente a partir del título del producto.
+
+Si una imagen no puede cargarse, la interfaz muestra `assets/img/logo.jpg` como respaldo para evitar tarjetas rotas.
 
 ## Formulario de contacto
 
@@ -105,7 +116,7 @@ El archivo netlify.toml publica directamente la raíz del repositorio porque el 
 
 ## Créditos de imágenes
 
-Las imágenes locales se guardaron desde el perfil público del emprendimiento con autorización del responsable del proyecto:
+Las imágenes del catálogo se organizan en `assets/img/` y están asociadas a estas referencias del perfil del emprendimiento:
 
 - [Instagram de Meligurumis con Amor](https://www.instagram.com/meligurumis_con_amor/)
 - [Muñeca de cabello azul](https://www.instagram.com/meligurumis_con_amor/reel/DbUJpPctBn6/)
